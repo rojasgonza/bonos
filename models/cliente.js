@@ -13,6 +13,9 @@ const Cliente = db.define('clientes', {
     apellido: {
         type: Sequelize.STRING
     },
+    inquilino:{
+        type: Sequelize.STRING
+    },
     direccion: {
         type: Sequelize.STRING
     },
