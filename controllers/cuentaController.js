@@ -27,6 +27,20 @@ exports.totCliente = async (req, res, next) => {
     }
     res.json(results[0])
 }
+
+
+////buscar por dia
+exports.saldopordia = async (req, res, next) => {
+    const results = await db.query("SELECT SUM(ingreso-salida) as Total from cuentacorrientes where fecha = " + '"'+req.params.fecha+'"');
+
+    // const result = await db.query("SELECT SUM(ingreso-salida) as Total from cuentacorrientes where clienteId = " + req.params.idCliente)
+    if (!results) {
+        console.log(error)
+        next()
+    }
+    res.json(results[0])
+}
+///
 //buscar por cliente
 exports.cuentaxcliente = async (req, res, next) => {
     const venta = await CuentaCorriente.findAll({

@@ -27,6 +27,8 @@ module.exports = function(){
     router.get('/cc/:idCC', ccController.mostrarCC)
     router.put('/cc/:idCC',auth, ccController.editarCC)
     router.delete('/cc/:idCC',auth, ccController.borrarCC)
+    router.get('/saldopordia/:fecha', ccController.saldopordia)
+
 
     router.post('/crear-cuenta', usuariosController.registrar)
     router.post('/iniciar-sesion', usuariosController.iniciar)
