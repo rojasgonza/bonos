@@ -43,7 +43,7 @@ app.use(function (req, res, next) {
     next();
 });
 const host = process.env.HOST || '0.0.0.0';
-const port = process.env.PORT || 5000;
+const port = process.env.DB_PORT ;
 app.listen(port, host, () => {
-    console.log('el servidor esta funcionando');
+    console.log(port + host);
 });
