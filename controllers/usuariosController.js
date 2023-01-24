@@ -17,11 +17,11 @@ exports.iniciar =  async (req,res,next) =>{
     let condition = { where: {email: req.body.email } }
     const usuario = await Usuarios.findOne(condition)
     if(!usuario){
-        await res.status(401).json({mensaje: "ese no existe"})
+        await res.status(401).json({mensaje: "No existe el usuario"})
         next()
     }else{
         if(!bcrypt.compareSync(req.body.clave, usuario.clave)){
-            await res.status(401).json({mensaje: "clave no existe"})
+            await res.status(401).json({mensaje: "La clave es incorrecta"})
             next()
         }else{
             const token = jwt.sign({
@@ -31,7 +31,7 @@ exports.iniciar =  async (req,res,next) =>{
             },
             'llave',
             {
-                expiresIn:'1h'
+                expiresIn:'3h'
             });
             res.json({token})
         }
