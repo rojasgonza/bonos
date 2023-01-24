@@ -43,8 +43,8 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-const host = process.env.DB_HOST || '0.0.0.0';
-const port = process.env.DB_PORT || 3306;
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3306;
 app.listen(port, host, () => {
     console.log('el servidor esta funcionando');
 });
