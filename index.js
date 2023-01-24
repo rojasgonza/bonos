@@ -4,7 +4,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 require ('dotenv').config({path: '.env'})
 
-
 const db = require('./config/config');
 
 require('./models/cliente')
@@ -45,7 +44,7 @@ app.use(function (req, res, next) {
     next();
 });
 const host = process.env.DB_HOST || '0.0.0.0';
-const port = process.env.PORT || 3306;
+const port = process.env.DB_PORT || 5000;
 app.listen(port, host, () => {
     console.log('el servidor esta funcionando');
 });
