@@ -2,6 +2,8 @@ const express = require('express')
 const routes = require('./routes');
 const path = require('path');
 const bodyParser = require('body-parser');
+require ('dotenv').config({path: '.env'})
+
 
 const db = require('./config/config');
 
@@ -42,8 +44,8 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-const host = process.env.HOST || '0.0.0.0';
-const port = process.env.DB_PORT ;
+const host = process.env.DB_HOST || '0.0.0.0';
+const port = process.env.DB_PORT || 3306;
 app.listen(port, host, () => {
-    console.log(port + host);
+    console.log('el servidor esta funcionando');
 });
